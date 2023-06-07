@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { BsArrowLeft } from "react-icons/bs";
-export default function Page({ params }) {
+
+let Page = ({ params }) => {
   const [country, getCountriesByName, getBorderName] = useMyStore((state) => [
     state.choosenCountry,
     state.getCountriesByName,
@@ -29,7 +30,7 @@ export default function Page({ params }) {
         <div className="flex lg:items-center flex-col lg:flex-row justify-center gap-10 lg:gap-20 mx-auto container md:p-0 ">
           <div className="itemLeft lg:w-1/2">
             <Image
-              class="w-8/12 lg:w-11/12 h-full object-cover "
+              className="w-8/12 lg:w-11/12 h-full object-cover "
               src={country[0]?.flags.png}
               alt={country[0]?.name.common}
               width={300}
@@ -139,4 +140,6 @@ export default function Page({ params }) {
       <div className="container flex items-center justify-start mx-auto mb-10 -bg--clr-Dark-Blue-DMode"></div>
     </div>
   );
-}
+};
+
+export default Page;
